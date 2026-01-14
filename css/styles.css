@@ -479,6 +479,37 @@ ul, ol {
   50% { opacity: 0.5; transform: scale(1.2); }
 }
 
+/* V2 Hero Updates */
+.hero__title-large {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  margin-bottom: var(--space-4);
+  line-height: 1.1;
+}
+
+.hero__tagline {
+  font-size: 1.5rem;
+  color: var(--gray-600);
+  margin-bottom: var(--space-8);
+  max-width: 520px;
+  line-height: 1.5;
+}
+
+.hero__badge--large {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--meadow-green);
+  color: var(--white);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-full);
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 14px rgba(115, 168, 0, 0.4);
+  margin-top: var(--space-8);
+}
+
 /* --------------------------------------------------------------------------
    Intro Section
    -------------------------------------------------------------------------- */
@@ -558,6 +589,39 @@ ul, ol {
 
 .callout__content p {
   margin-bottom: var(--space-6);
+}
+
+/* --------------------------------------------------------------------------
+   Gallery Section
+   -------------------------------------------------------------------------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-10);
+}
+
+.gallery__item {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+}
+
+.gallery__item:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-xl);
+}
+
+.gallery__item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.gallery__item:hover img {
+  transform: scale(1.1);
 }
 
 /* Founders Club */
@@ -764,6 +828,23 @@ ul, ol {
   flex-shrink: 0;
 }
 
+.feature__icon--check {
+  width: 32px;
+  height: 32px;
+  background: var(--meadow-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.feature__icon--check svg {
+  width: 18px;
+  height: 18px;
+}
+
 .feature__text {
   margin: 0;
   font-weight: 500;
@@ -825,6 +906,36 @@ ul, ol {
   height: 8px;
   background: var(--meadow-green);
   border-radius: 50%;
+}
+
+/* Comparison Card Image */
+.comparison__card-image {
+  margin: calc(-1 * var(--space-8));
+  margin-bottom: var(--space-6);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  overflow: hidden;
+}
+
+.comparison__card-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.comparison__card:hover .comparison__card-image img {
+  transform: scale(1.05);
+}
+
+/* Larger comparison list */
+.comparison__list--large li {
+  font-size: 1.0625rem;
+  margin-bottom: var(--space-4);
+  line-height: 1.5;
+}
+
+.comparison__list--large li::before {
+  top: 10px;
 }
 
 /* --------------------------------------------------------------------------
@@ -915,6 +1026,23 @@ ul, ol {
   font-size: 1.5rem;
 }
 
+.card__icon--leaf {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--meadow-green) 0%, var(--meadow-green-dark) 100%);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+}
+
+.card__icon--leaf svg {
+  width: 28px;
+  height: 28px;
+}
+
 .card__title {
   font-size: 1.125rem;
   font-family: var(--font-body);
@@ -998,6 +1126,54 @@ ul, ol {
 }
 
 /* --------------------------------------------------------------------------
+   Content Split (Two-column text/image layouts)
+   -------------------------------------------------------------------------- */
+.content-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.content-split--reverse {
+  direction: rtl;
+}
+
+.content-split--reverse > * {
+  direction: ltr;
+}
+
+.content-split__text h3 {
+  margin-bottom: var(--space-6);
+}
+
+.content-split__text p {
+  margin-bottom: var(--space-4);
+  font-size: 1.0625rem;
+}
+
+.content-split__image {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.content-split__image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.content-split__image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(115, 168, 0, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
    Veterans Section
    -------------------------------------------------------------------------- */
 .veterans {
@@ -1034,6 +1210,33 @@ ul, ol {
 .veterans p {
   color: rgba(255, 255, 255, 0.85);
   font-size: 1.125rem;
+}
+
+.veterans__content--with-image {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.veterans__text {
+  position: relative;
+  z-index: 2;
+}
+
+.veterans__image {
+  position: relative;
+  z-index: 2;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  max-width: 320px;
+}
+
+.veterans__image img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
 }
 
 /* --------------------------------------------------------------------------
@@ -1155,6 +1358,19 @@ ul, ol {
     margin: 0 auto;
   }
 
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .content-split {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .content-split--reverse {
+    direction: ltr;
+  }
+
   .cards__grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1242,6 +1458,24 @@ ul, ol {
   .veterans__content {
     grid-template-columns: 1fr;
     text-align: center;
+  }
+
+  .veterans__content--with-image {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .veterans__image {
+    margin: 0 auto;
+    max-width: 280px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery__item img {
+    height: 250px;
   }
 
   .footer__grid {

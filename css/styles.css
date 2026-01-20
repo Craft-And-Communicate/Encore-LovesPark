@@ -562,6 +562,47 @@ ul, ol {
 }
 
 /* --------------------------------------------------------------------------
+   Grass Graphics
+   -------------------------------------------------------------------------- */
+.grass-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.grass-divider--bottom-right {
+  max-width: 400px;
+  left: auto;
+  right: 0;
+}
+
+.grass-divider--bottom-left {
+  max-width: 400px;
+  right: auto;
+  left: 0;
+  transform: scaleX(-1);
+}
+
+.grass-divider--corner {
+  max-width: 300px;
+  height: auto;
+}
+
+/* Ensure parent sections have relative positioning for grass */
+.hero--fullwidth,
+.callout,
+.founders,
+.footer-cta,
+.veterans {
+  position: relative;
+}
+
+/* --------------------------------------------------------------------------
    Intro Section
    -------------------------------------------------------------------------- */
 .intro {

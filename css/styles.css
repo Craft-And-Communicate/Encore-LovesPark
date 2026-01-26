@@ -357,7 +357,7 @@ ul, ol {
 
 /* Larger logo for double nav */
 .header__logo--large img {
-  height: 70px;
+  height: 80px;
 }
 
 .header__logo:hover img {
@@ -834,7 +834,7 @@ ul, ol {
 }
 
 .callout--green {
-  background: #57798E;
+  background: var(--harbor-slate);
   color: var(--white);
 }
 
@@ -847,13 +847,13 @@ ul, ol {
 }
 
 .callout--green .btn--secondary {
-  background: #E2AF3A;
+  background: var(--amber);
   color: #1A1A1A;
   border: none;
 }
 
 .callout--green .btn--secondary:hover {
-  background: #c99a2f;
+  background: var(--amber-dark);
   color: #1A1A1A;
 }
 
@@ -1528,8 +1528,8 @@ ul, ol {
    Footer CTA
    -------------------------------------------------------------------------- */
 .footer-cta {
-  background: #E2AF3A;
-  color: #1A1A1A;
+  background: #578000;
+  color: var(--white);
   padding: var(--space-20) 0;
 }
 
@@ -1540,25 +1540,25 @@ ul, ol {
 }
 
 .footer-cta h2 {
-  color: #1A1A1A;
+  color: var(--white);
   margin-bottom: var(--space-6);
 }
 
 .footer-cta p {
-  color: rgba(26, 26, 26, 0.85);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 1.125rem;
   margin-bottom: var(--space-4);
 }
 
 .footer-cta .btn--secondary {
-  background: #57798E;
-  color: var(--white);
+  background: var(--amber);
+  color: #1A1A1A;
   border: none;
 }
 
 .footer-cta .btn--secondary:hover {
-  background: #456275;
-  color: var(--white);
+  background: var(--amber-dark);
+  color: #1A1A1A;
 }
 
 /* --------------------------------------------------------------------------
@@ -1599,7 +1599,7 @@ ul, ol {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: var(--space-5);
-  color: #525252;
+  color: var(--gray-600);
 }
 
 .footer__links li {

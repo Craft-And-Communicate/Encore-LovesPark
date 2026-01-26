@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Courtyard at Loves Park offers independent living, assisted living, and memory care in Loves Park, Illinois. Opening Summer 2026.">
+  <title>The Courtyard at Loves Park | v3 Bold Editorial</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========== BOLD EDITORIAL v3 ========== */
+    :root {
+      --harbor-slate: #57798E;
+      --harbor-slate-dark: #456275;
+      --amber: #E2AF3A;
+      --amber-dark: #c99a2f;
+      --meadow-green: #73A800;
+      --meadow-green-tint: #C7D9AF;
+      --light-beige: #FBF6EA;
+      --white: #ffffff;
+      --black: #1A1A1A;
+      --gray-100: #f7f7f7;
+      --gray-600: #525252;
+      --font-heading: 'Quattrocento', Georgia, serif;
+      --font-body: 'Mulish', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--black);
+      line-height: 1.7;
+      background: var(--white);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      mix-blend-mode: difference;
+    }
+
+    .header__logo img { height: 50px; filter: brightness(0) invert(1); }
+
+    .nav__list {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav__link {
+      text-decoration: none;
+      color: var(--white);
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 40px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: all 0.3s;
+    }
+
+    .btn--primary {
+      background: var(--amber);
+      color: var(--black);
+    }
+
+    .btn--primary:hover { background: var(--amber-dark); }
+
+    .btn--white {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .btn--outline {
+      border: 2px solid currentColor;
+      background: transparent;
+    }
+
+    /* ===== HERO - FULL BLEED ===== */
+    .hero {
+      height: 100vh;
+      background: url('assets/images/stock/hero-seniors.jpg') center top / cover;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.3) 100%);
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      padding: 80px 40px;
+      max-width: 900px;
+    }
+
+    .hero__badge {
+      display: inline-block;
+      background: var(--meadow-green);
+      color: var(--white);
+      padding: 12px 24px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 24px;
+    }
+
+    .hero__title {
+      font-size: clamp(3rem, 8vw, 6rem);
+      color: var(--white);
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .hero__subtitle {
+      font-size: 1.25rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+
+    .hero__buttons { display: flex; gap: 16px; }
+
+    /* ===== MARQUEE ===== */
+    .marquee {
+      background: var(--amber);
+      padding: 20px 0;
+      overflow: hidden;
+    }
+
+    .marquee__text {
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      white-space: nowrap;
+      animation: marquee 20s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ===== STATEMENT ===== */
+    .statement {
+      padding: 160px 40px;
+      text-align: center;
+    }
+
+    .statement__text {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 4rem);
+      color: var(--harbor-slate);
+      max-width: 1000px;
+      margin: 0 auto;
+      line-height: 1.3;
+    }
+
+    .statement__text strong {
+      color: var(--meadow-green);
+    }
+
+    /* ===== SPLIT SECTION ===== */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 80vh;
+    }
+
+    .split--reverse .split__image { order: -1; }
+
+    .split__image {
+      background-size: cover;
+      background-position: center;
+    }
+
+    .split__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px;
+    }
+
+    .split__label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--meadow-green);
+      margin-bottom: 16px;
+    }
+
+    .split__title {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      color: var(--harbor-slate);
+      margin-bottom: 24px;
+    }
+
+    .split__text {
+      font-size: 1.125rem;
+      color: var(--gray-600);
+      margin-bottom: 40px;
+    }
+
+    /* ===== STATS ===== */
+    .stats {
+      background: var(--harbor-slate);
+      padding: 100px 40px;
+    }
+
+    .stats__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      text-align: center;
+    }
+
+    .stat__number {
+      font-family: var(--font-heading);
+      font-size: clamp(3rem, 6vw, 5rem);
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+
+    .stat__label {
+      color: var(--white);
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* ===== CARE GRID ===== */
+    .care-grid {
+      padding: 120px 40px;
+      background: var(--gray-100);
+    }
+
+    .care-grid__header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .care-grid__title {
+      font-size: clamp(2rem, 5vw, 4rem);
+      color: var(--harbor-slate);
+      text-transform: uppercase;
+    }
+
+    .care-grid__items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .care-item {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .care-item__image {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s;
+    }
+
+    .care-item:hover .care-item__image { transform: scale(1.1); }
+
+    .care-item__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 40px;
+    }
+
+    .care-item__title {
+      color: var(--white);
+      font-size: 1.75rem;
+      margin-bottom: 8px;
+    }
+
+    .care-item__link {
+      color: var(--amber);
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+    }
+
+    /* ===== FOUNDERS ===== */
+    .founders {
+      background: var(--black);
+      color: var(--white);
+      padding: 120px 40px;
+    }
+
+    .founders__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .founders__title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .founders__title span { color: var(--amber); }
+
+    .founders__text {
+      font-size: 1.25rem;
+      opacity: 0.7;
+      margin-bottom: 40px;
+    }
+
+    .founders__perks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .founders__perk {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .founders__perk-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--meadow-green);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    /* ===== FOOTER CTA ===== */
+    .footer-cta {
+      background: var(--amber);
+      padding: 120px 40px;
+      text-align: center;
+    }
+
+    .footer-cta__title {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      color: var(--black);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .footer-cta__text {
+      font-size: 1.25rem;
+      color: rgba(0,0,0,0.7);
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 80px 40px 40px;
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .footer__logo img { height: 50px; margin-bottom: 24px; filter: brightness(0) invert(1); }
+
+    .footer__contact { opacity: 0.7; font-size: 0.9375rem; }
+
+    .footer__title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--amber);
+      margin-bottom: 24px;
+    }
+
+    .footer__links { list-style: none; }
+    .footer__links li { margin-bottom: 12px; }
+    .footer__links a {
+      color: var(--white);
+      opacity: 0.7;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .footer__links a:hover { opacity: 1; }
+
+    .footer__bottom {
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      opacity: 0.5;
+      font-size: 0.875rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .split { grid-template-columns: 1fr; }
+      .split__image { min-height: 400px; }
+      .split--reverse .split__image { order: 0; }
+      .stats__grid { grid-template-columns: repeat(2, 1fr); }
+      .care-grid__items { grid-template-columns: 1fr; }
+      .founders__inner { grid-template-columns: 1fr; }
+      .footer__grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .header { padding: 16px 24px; }
+      .nav__list { display: none; }
+      .container { padding: 0 24px; }
+      .hero__content { padding: 40px 24px; }
+      .split__content { padding: 60px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="/" class="header__logo">
+      <img src="assets/images/logo.png" alt="The Courtyard at Loves Park">
+    </a>
+    <nav>
+      <ul class="nav__list">
+        <li><a href="#" class="nav__link">Services</a></li>
+        <li><a href="#" class="nav__link">Life Here</a></li>
+        <li><a href="#" class="nav__link">Floor Plans</a></li>
+        <li><a href="#" class="nav__link">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#" class="btn btn--white">Visit Us</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__content">
+      <span class="hero__badge">Opening Summer 2026</span>
+      <h1 class="hero__title">The Courtyard at Loves Park</h1>
+      <p class="hero__subtitle">Active and social senior living in Loves Park, Illinois. Trade worry for peace of mind.</p>
+      <div class="hero__buttons">
+        <a href="#" class="btn btn--primary">Schedule A Visit</a>
+        <a href="#" class="btn btn--outline" style="color: white;">Work With Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee__text">
+      Independent Living &nbsp;&bull;&nbsp; Assisted Living &nbsp;&bull;&nbsp; Memory Care &nbsp;&bull;&nbsp;
+      Independent Living &nbsp;&bull;&nbsp; Assisted Living &nbsp;&bull;&nbsp; Memory Care &nbsp;&bull;&nbsp;
+      Independent Living &nbsp;&bull;&nbsp; Assisted Living &nbsp;&bull;&nbsp; Memory Care &nbsp;&bull;&nbsp;
+      Independent Living &nbsp;&bull;&nbsp; Assisted Living &nbsp;&bull;&nbsp; Memory Care &nbsp;&bull;&nbsp;
+    </div>
+  </div>
+
+  <!-- STATEMENT -->
+  <section class="statement">
+    <p class="statement__text">
+      Trade household chores for <strong>activities that matter</strong>, swap loneliness for <strong>genuine friendships</strong>, and exchange worry for <strong>peace of mind</strong>.
+    </p>
+  </section>
+
+  <!-- SPLIT 1 -->
+  <section class="split">
+    <div class="split__image" style="background-image: url('assets/images/stock/seniors-walking.jpg')"></div>
+    <div class="split__content">
+      <span class="split__label">Let Go of the Hassles</span>
+      <h2 class="split__title">More Time for What Matters</h2>
+      <p class="split__text">Imagine waking up knowing your only task is deciding how to spend the day. No more home maintenance, lawn care, or household chores. Just freedom to live life on your terms.</p>
+      <a href="#" class="btn btn--primary">Learn More</a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stats__grid">
+      <div class="stat">
+        <div class="stat__number">$10K+</div>
+        <div class="stat__label">Founders Club Value</div>
+      </div>
+      <div class="stat">
+        <div class="stat__number">3</div>
+        <div class="stat__label">Care Levels</div>
+      </div>
+      <div class="stat">
+        <div class="stat__number">24/7</div>
+        <div class="stat__label">Support Available</div>
+      </div>
+      <div class="stat">
+        <div class="stat__number">2026</div>
+        <div class="stat__label">Grand Opening</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARE GRID -->
+  <section class="care-grid">
+    <div class="care-grid__header">
+      <h2 class="care-grid__title">Find Your Fit</h2>
+    </div>
+    <div class="care-grid__items">
+      <div class="care-item">
+        <div class="care-item__image" style="background-image: url('assets/images/stock/senior-il-card.jpg')"></div>
+        <div class="care-item__overlay">
+          <h3 class="care-item__title">Independent Living</h3>
+          <a href="#" class="care-item__link">Explore &rarr;</a>
+        </div>
+      </div>
+      <div class="care-item">
+        <div class="care-item__image" style="background-image: url('assets/images/stock/senior-al-card.jpg')"></div>
+        <div class="care-item__overlay">
+          <h3 class="care-item__title">Assisted Living</h3>
+          <a href="#" class="care-item__link">Explore &rarr;</a>
+        </div>
+      </div>
+      <div class="care-item">
+        <div class="care-item__image" style="background-image: url('assets/images/stock/senior-mc-card.jpg')"></div>
+        <div class="care-item__overlay">
+          <h3 class="care-item__title">Memory Care</h3>
+          <a href="#" class="care-item__link">Explore &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPLIT 2 -->
+  <section class="split split--reverse">
+    <div class="split__image" style="background-image: url('assets/images/stock/seniors-yoga.jpg')"></div>
+    <div class="split__content">
+      <span class="split__label">Community</span>
+      <h2 class="split__title">Friendships That Feel Natural</h2>
+      <p class="split__text">Loneliness shouldn't be part of aging. Find neighbors who become friends through shared meals, activities, and everyday moments. The choice is always yours.</p>
+      <a href="#" class="btn btn--primary">Explore Life Here</a>
+    </div>
+  </section>
+
+  <!-- FOUNDERS -->
+  <section class="founders">
+    <div class="container">
+      <div class="founders__inner">
+        <div>
+          <h2 class="founders__title">Become a <span>Founders Club</span> Member</h2>
+          <p class="founders__text">Be among our first residents and enjoy exclusive perks worth over $10,000. The sooner you join, the more you save.</p>
+          <a href="#" class="btn btn--primary">Join Founders Club</a>
+        </div>
+        <div class="founders__perks">
+          <div class="founders__perk"><span class="founders__perk-icon">&#10003;</span> 24 complimentary guest meals</div>
+          <div class="founders__perk"><span class="founders__perk-icon">&#10003;</span> $2,500 community fee waived</div>
+          <div class="founders__perk"><span class="founders__perk-icon">&#10003;</span> $5,000 moving gift certificate</div>
+          <div class="founders__perk"><span class="founders__perk-icon">&#10003;</span> Choice of premium locations</div>
+          <div class="founders__perk"><span class="founders__perk-icon">&#10003;</span> Construction sneak peeks</div>
+          <div class="founders__perk"><span class="founders__perk-icon">&#10003;</span> Meet the neighbors events</div>
+          <div class="founders__perk"><span class="founders__perk-icon">&#10003;</span> Private Welcome Party for 10</div>
+          <div class="founders__perk"><span class="founders__perk-icon">&#10003;</span> Free parking for life</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER CTA -->
+  <section class="footer-cta">
+    <h2 class="footer-cta__title">Ready to Reserve?</h2>
+    <p class="footer-cta__text">Visit our sales center at 6710 Broadcast Parkway in Loves Park. Call (815) 420-0384 to schedule.</p>
+    <a href="#" class="btn btn--outline" style="border-color: var(--black); color: var(--black);">Schedule A Visit</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="/" class="footer__logo">
+            <img src="assets/images/logo.png" alt="The Courtyard at Loves Park">
+          </a>
+          <div class="footer__contact">
+            <p>The Courtyard at Loves Park</p>
+            <p>6710 Broadcast Parkway</p>
+            <p>Loves Park, IL 61111</p>
+            <p>(815) 420-0384</p>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__title">Services</h4>
+          <ul class="footer__links">
+            <li><a href="#">Independent Living</a></li>
+            <li><a href="#">Assisted Living</a></li>
+            <li><a href="#">Memory Care</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__title">Community</h4>
+          <ul class="footer__links">
+            <li><a href="#">Resident Life</a></li>
+            <li><a href="#">Floor Plans</a></li>
+            <li><a href="#">Photos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__title">Resources</h4>
+          <ul class="footer__links">
+            <li><a href="#">Senior Living Guide</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 The Courtyard at Loves Park. Part of the Encore Senior Living family.</p>
+        <p style="margin-top: 8px;">v3.0 Editorial | January 22, 2026</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

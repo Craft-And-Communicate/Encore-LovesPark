@@ -244,6 +244,68 @@ ul, ol {
 }
 
 /* --------------------------------------------------------------------------
+   Utility Bar (Top Nav)
+   -------------------------------------------------------------------------- */
+.utility-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  font-size: 0.875rem;
+}
+
+.utility-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-10);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-6);
+}
+
+.utility-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.utility-nav__link {
+  color: var(--gray-600);
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.utility-nav__link:hover {
+  color: var(--harbor-slate);
+}
+
+.utility-nav__divider {
+  color: var(--gray-300);
+}
+
+.utility-bar__phone {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-weight: 600;
+  color: var(--gray-600);
+}
+
+.utility-bar__phone-number {
+  color: var(--meadow-green);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.utility-bar__phone-number:hover {
+  color: var(--meadow-green-dark);
+}
+
+/* --------------------------------------------------------------------------
    Header & Navigation
    -------------------------------------------------------------------------- */
 .header {
@@ -259,8 +321,23 @@ ul, ol {
   transition: all var(--transition-normal);
 }
 
+/* Double Nav Header - positioned below utility bar */
+.header--double {
+  position: fixed;
+  top: 44px; /* Height of utility bar */
+}
+
+.header--double.header--scrolled {
+  top: 0;
+}
+
 .header--scrolled {
   box-shadow: var(--shadow-md);
+}
+
+.header--scrolled + .utility-bar,
+.header--scrolled ~ .utility-bar {
+  display: none;
 }
 
 .header__inner {
@@ -276,6 +353,11 @@ ul, ol {
   height: 55px;
   width: auto;
   transition: transform var(--transition-fast);
+}
+
+/* Larger logo for double nav */
+.header__logo--large img {
+  height: 70px;
 }
 
 .header__logo:hover img {
@@ -300,10 +382,12 @@ ul, ol {
 
 .nav__link {
   display: block;
-  padding: var(--space-2) var(--space-3);
-  font-size: 0.9375rem;
-  font-weight: 500;
+  padding: var(--space-2) var(--space-4);
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--gray-600);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
 }
@@ -358,6 +442,28 @@ ul, ol {
   color: var(--harbor-slate);
 }
 
+/* Nav link with arrow indicator */
+.nav__link--arrow::after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: var(--space-2);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid currentColor;
+  vertical-align: middle;
+}
+
+/* Nav CTA Button */
+.nav__item--cta {
+  margin-left: var(--space-4);
+}
+
+.nav__cta {
+  padding: var(--space-3) var(--space-6);
+}
+
 /* Mobile Toggle */
 .nav__toggle {
   display: none;
@@ -405,7 +511,7 @@ ul, ol {
 .hero--fullwidth {
   min-height: 100vh;
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;
   background-color: var(--harbor-slate-dark);
 }
@@ -424,6 +530,16 @@ ul, ol {
     rgba(26, 26, 26, 0.7) 100%
   );
   z-index: 1;
+}
+
+/* Warm overlay - more welcoming gradient from v3 */
+.hero__overlay--warm {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
 }
 
 .hero__content--centered {
@@ -539,6 +655,54 @@ ul, ol {
   line-height: 1.1;
 }
 
+/* Warm Hero Variant (v3 style) */
+.hero--warm {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-color: var(--harbor-slate-dark);
+  display: flex;
+  align-items: flex-end;
+  padding-top: 120px; /* Account for double nav */
+}
+
+.hero--warm::before {
+  display: none;
+}
+
+/* Bottom-left aligned content like v3 */
+.hero__content--bottom-left {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-20) 0;
+  max-width: 900px;
+}
+
+.hero__content--bottom-left .hero__badge--large {
+  margin-bottom: var(--space-6);
+}
+
+/* Extra large title for warm hero */
+.hero__title-xl {
+  font-size: clamp(3rem, 8vw, 6rem);
+  color: var(--white);
+  margin-bottom: var(--space-6);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Larger subtitle for warm hero */
+.hero__subtitle-lg {
+  font-size: 1.375rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: var(--space-10);
+  max-width: 600px;
+  line-height: 1.5;
+}
+
 .hero__tagline {
   font-size: 1.5rem;
   color: var(--gray-600);
@@ -572,24 +736,25 @@ ul, ol {
   width: 100%;
   height: auto;
   pointer-events: none;
-  z-index: 10;
+  z-index: 1;
+  opacity: 0.25;
 }
 
 .grass-divider--bottom-right {
-  max-width: 400px;
+  max-width: 300px;
   left: auto;
   right: 0;
 }
 
 .grass-divider--bottom-left {
-  max-width: 400px;
+  max-width: 300px;
   right: auto;
   left: 0;
   transform: scaleX(-1);
 }
 
 .grass-divider--corner {
-  max-width: 300px;
+  max-width: 200px;
   height: auto;
 }
 
@@ -600,6 +765,17 @@ ul, ol {
 .footer-cta,
 .veterans {
   position: relative;
+  overflow: hidden;
+}
+
+/* Ensure content stays above grass */
+.hero--fullwidth .container,
+.callout .container,
+.founders .container,
+.footer-cta .container,
+.veterans .container {
+  position: relative;
+  z-index: 5;
 }
 
 /* --------------------------------------------------------------------------
@@ -658,16 +834,27 @@ ul, ol {
 }
 
 .callout--green {
-  background: var(--amber);
-  color: var(--black);
+  background: #57798E;
+  color: var(--white);
 }
 
 .callout--green h2, .callout--green h3 {
-  color: var(--black);
+  color: var(--white);
 }
 
 .callout--green p {
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.callout--green .btn--secondary {
+  background: #E2AF3A;
+  color: #1A1A1A;
+  border: none;
+}
+
+.callout--green .btn--secondary:hover {
+  background: #c99a2f;
+  color: #1A1A1A;
 }
 
 .callout__content {
@@ -1341,8 +1528,8 @@ ul, ol {
    Footer CTA
    -------------------------------------------------------------------------- */
 .footer-cta {
-  background: var(--meadow-green);
-  color: var(--black);
+  background: #E2AF3A;
+  color: #1A1A1A;
   padding: var(--space-20) 0;
 }
 
@@ -1353,14 +1540,25 @@ ul, ol {
 }
 
 .footer-cta h2 {
-  color: var(--black);
+  color: #1A1A1A;
   margin-bottom: var(--space-6);
 }
 
 .footer-cta p {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(26, 26, 26, 0.85);
   font-size: 1.125rem;
   margin-bottom: var(--space-4);
+}
+
+.footer-cta .btn--secondary {
+  background: #57798E;
+  color: var(--white);
+  border: none;
+}
+
+.footer-cta .btn--secondary:hover {
+  background: #456275;
+  color: var(--white);
 }
 
 /* --------------------------------------------------------------------------
@@ -1401,7 +1599,7 @@ ul, ol {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: var(--space-5);
-  color: var(--harbor-slate);
+  color: #525252;
 }
 
 .footer__links li {
@@ -1465,6 +1663,19 @@ ul, ol {
 }
 
 @media (max-width: 768px) {
+  /* Hide utility bar on mobile */
+  .utility-bar {
+    display: none;
+  }
+
+  .header--double {
+    top: 0;
+  }
+
+  .header__logo--large img {
+    height: 50px;
+  }
+
   .nav__list {
     display: none;
     position: absolute;
@@ -1486,6 +1697,15 @@ ul, ol {
     display: flex;
   }
 
+  .nav__item--cta {
+    margin-left: 0;
+    margin-top: var(--space-4);
+  }
+
+  .nav__link--arrow::after {
+    display: none;
+  }
+
   .nav__dropdown {
     position: static;
     opacity: 1;
@@ -1498,6 +1718,19 @@ ul, ol {
 
   .nav__dropdown::before {
     display: none;
+  }
+
+  /* Warm hero responsive */
+  .hero--warm {
+    padding-top: 80px;
+  }
+
+  .hero__content--bottom-left {
+    padding: var(--space-12) 0;
+  }
+
+  .hero__title-xl {
+    font-size: clamp(2.5rem, 10vw, 4rem);
   }
 
   .hero {
